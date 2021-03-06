@@ -31,7 +31,13 @@ This repository offers an analysis of factors that influence housing prices in K
 
 ### Setup Instructions
 
-TODO: add setup instructions (e.g. the name of the Conda environment file)
+1. Go into king-county repository.
+- `cd ../../king-county`
+2. Create your environment by running the following code:
+- `conda env create --file project.yml`
+3. Acvitvate your already created environment
+- `conda activate project`
+
 
 ## Business Understanding
 
