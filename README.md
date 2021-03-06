@@ -15,8 +15,6 @@ This repository offers an analysis of factors that influence housing prices in K
 │   └── raw          <-- Original (immutable) data dump
 │
 ├── notebooks        <-- Jupyter Notebooks for exploration and presentation
-│   ├── exploratory  <-- Unpolished exploratory data analysis (EDA) notebooks
-│   └── report       <-- Polished final notebook(s)
 │
 ├── references       <-- Data dictionaries, manuals, and project instructions
 │
