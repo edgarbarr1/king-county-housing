@@ -3,7 +3,7 @@
 This directory will store both raw and processed data
 
 ## Types of files found in this folder ##
-`
+```
  You will find the raw files used for the modeling of the project.
      
 ├──README.md                       <-- This document
@@ -15,4 +15,4 @@ This directory will store both raw and processed data
 │  └── data.db                     <-- by product of the database.ipynb. Uses raw files to create database
 │
 └──raw                             <-- folder that contains all the raw csv files
-`
+```
