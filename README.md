@@ -36,6 +36,9 @@ This repository offers an analysis of factors that influence housing prices in K
 3. Acvitvate your already created environment
 - `conda activate project`
 
+## Additional Instructions ##
+
+Please make sure to run the `database.ipynb` located in `notebooks/exploratory/` and then `eda_notebook.ipynb` to create the file containing the data that the `stats.ipynb` references for the models.
 
 ## Business Understanding
 
