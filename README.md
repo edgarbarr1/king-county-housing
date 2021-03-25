@@ -64,40 +64,40 @@ In order to prepare our data, we chose to only keep data that pertained to resid
 ## Modeling
 
 ### Model 1
-![image3](references/figures/model1)
+![image3](references/figures/model1.png)
 
 ### Homoscedasticity Model 1
-![image4](references/figures/homoscedasticity_model_1)
+![image4](references/figures/homoscedasticity_model_1.png)
 
 ### Model 2
-![image5](references/figures/model2)
+![image5](references/figures/model2.png)
 
 ### Homoscedasticity Model 2
-![image6](references/figures/homoscedasticity_model_2)
+![image6](references/figures/homoscedasticity_model_2.png)
 
 ### Model 3
-![image7](references/figures/model3)
+![image7](references/figures/model3.png)
 
 ### Homoscedasticity Model 3
-![image8](references/figures/homoscedasticity_model_3)
+![image8](references/figures/homoscedasticity_model_3.png)
 
 ### Model 4
-![image9](references/figures/model4)
+![image9](references/figures/model4.png)
 
 ### Homoscedasticity Model 4
-![image10](references/figures/homoscedasticity_model_4)
+![image10](references/figures/homoscedasticity_model_4.png)
 
 ### Model 5
-![image11](references/figures/model5)
+![image11](references/figures/model5.png)
 
 ### Homoscedasticity Model 5
-![image12](references/figures/homoscedasticity_model_5)
+![image12](references/figures/homoscedasticity_model_5.png)
 
 ### Model 6
-![image13](references/figures/model6)
+![image13](references/figures/model6.png)
 
 ### Homoscedasticity Model 6
-![image14](references/figures/homoscedasticity_model_6)
+![image14](references/figures/homoscedasticity_model_6.png)
 
 
 ## Evaluation
