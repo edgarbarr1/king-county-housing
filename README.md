@@ -52,43 +52,85 @@ Based on the findings of our [notebook](notebooks/reports/stats.ipynb), it is re
 A heatmap was used to visualy identify positively correlated features that had an impact on `SalePrice`.
 
 ## Visualization 2
-![image 2](references/figures/correlation_matrix.png)
+![image 2](references/figures/pairplot.png)
 
 After choosing the most positively correlated feeatures we could see, a scatterplot corrlation plot was called to identify which features seemed to have a sense of linearity. Five features, aside from the target, were chosen for this correlation matrix.
-
-## Visualization 3
-![image 3](references/figures/SalePrice_dist.png)
-
-We looked at the distribution of the target variable and we saw some sense of normality. We defintely saw strong postive skew as the right tail was longer than the right tail.
-
-## Visualization 4
-![image 4](references/figures/totLiving_dist.png)
-
-We loked at the distribution of ultimately the center of our recommendation. The total living space in feet had for the most part a normal distribution with a positive skew to the right. The right tail seemed slightly longer.
 
 
 ## Data Preparation
 
-In order to prepare our data, we chose to only keep data that pertained to residential homes, since we were looking at targetting the increase in value for homeowners. Therefore we filtered our data to homes for single families. We also kept a handful of continuous data columns that seemed like it would have a correlation with the `SalePrice`
+In order to prepare our data, we chose to only keep data that pertained to residential homes, since we were looking at targetting the increase in value for homeowners. Therefore we filtered our data to homes for single families. We also kept a handful of continuous data columns that seemed like it would have a correlation with the `SalePrice`. We also eventually filtered down to house prices from houses built in 2018. 
 
 ## Modeling
 
-The final model includes features `SqFtTotLiving` and engineered feature `sqfeet_feature`. 
+### Model 1
+![image3](references/figures/model1)
+
+### Homoscedasticity Model 1
+![image4](references/figures/homoscedasticity_model_1)
+
+### Model 2
+![image5](references/figures/model2)
+
+### Homoscedasticity Model 2
+![image6](references/figures/homoscedasticity_model_2)
+
+### Model 3
+![image7](references/figures/model3)
+
+### Homoscedasticity Model 3
+![image8](references/figures/homoscedasticity_model_3)
+
+### Model 4
+![image9](references/figures/model4)
+
+### Homoscedasticity Model 4
+![image10](references/figures/homoscedasticity_model_4)
+
+### Model 5
+![image11](references/figures/model5)
+
+### Homoscedasticity Model 5
+![image12](references/figures/homoscedasticity_model_5)
+
+### Model 6
+![image13](references/figures/model6)
+
+### Homoscedasticity Model 6
+![image14](references/figures/homoscedasticity_model_6)
+
 
 ## Evaluation
 
-We started of with a baseline model where the only input feature was SqFtTotLiving to see how it affected the SalePrice. This model had an R-squared of 0.38. The model violated the lineary assumtion since it had a p value of 0.052. The normality p-value was 0 therefore did not violate the normality assumptions.
+We started off with a base model of SalePrice ~ SqFtTotLiving. It described about 38% of the data and has great p-values under .05. The model seemed statistically significant in its coefficients. In the model we learned that for every Square foot added the price of a house, would on average increase approximately $378.
 
-The final model had 2 features, one which was engineered which was SqFtTotLiving and sqfeet_feature. It had an R-Squared of 0.42 which was a slight increase over the the previous model. The model was inline with the Linearity assumption. Although it had a high JB value its p-value was 0 and therefore inline with the normality assumption. The homoscedasticity was low and therefore violated the homoscedasticity assumption. For the most part the homoscedasticity showed the model underestimating some of the SalePrice.
+Note, no years had been filtered.
 
-Because only 3 features that were used explained 42% of the data, it indicated that although it did have some exaplanatory power, it clearly required more analysis to understand what other factors had more inpact on the model.
+After checking the linearity assumptions, it was revealed that though there was no violation of the normality or linearity assumption, the data violated the homoscedasticity assumption.
 
-While investigating SalePrice and the features that played a factor on its variability, we investigated SqFt1stFloor. We found that SqFt1stFloor had a positive correlation with SalePrice. For each increase of 1 in SqFt1stFloor, the SalePrice increased by 707.94.
+We tried to correct this by filtering outlier data and removing all houses that had a price larger than 2 million. This definitely had an effect on our model since, after running the code again, we got a slightly lower r-squared of .366. The p-values remained low and the t-value seemed to indicate that our coefficients were statistically significant.
 
-When looking at SqFt1stFloor in the simple model we found that SqFt1stFloor had a positive correlation on SalePrice. For each increase of 1 in SqFt1stFloor, the SalePrice increased by 474.5492
+I once again ran the homoscedastic test and scatter plot and this time we got different results. the scatter plot seemed more linear but on a slope and the statistical test after seemed to indicate that we failed to reject the null hypothesis and therefore our data was not homoscedastic.
+
+In the third model, using the same dataFrame, we added the feature SqFtOpenPorch. When we ran our model, we got an r-squared of .366. However, the rest of the statistics and coefficients look promising in terms of of a statistical difference. The T-statistic seems to be greater than 0 and the p-values also are at 0. The F-statistic also seems to indicate that the fit of this model is statistically significant. As we can see from the statistics the model has, this model has a Skewness and Kurtosis is close to the shape of a normal distribution.
+
+As we ran the homoscedasticity test, I noticed that the scatter plot looked almost identical to the previous test. In order to account for this failed assumption, I decided to filter the data of houses of year built to a single Year.
+
+The 4th model was built on top of the 3rd model, this time we used only data from houses built in 2018. After running the model, we got an increase in the r-squared of .428 which means that the model described approximately 43% of the variance in house prices. The p-value for the SqFtOpenPorch seem to show that the p-value is large than .05 and thus it appears that there is strong evidence to fail to reject our null hypothesis. This tells us that there is higher probability of the data not being statistically significant.
+
+However, the SqFtTotLiving data point still appears to be smaller than .05 and therefore it provides support to reject our null hypothesis.
+
+After running our tests for normality and linearity it appeared to not violate those assumptions. However, the data was still not homoscedastic.
+
+In order to try to account for this, we built the 5th data model that had a lot of the non-living total square feet area in total and added it to a column. Then we removed the SqFtOpenPorch because the values under that column were added to non_living_SqFt column.
+
+After we ran the model we found that the R-squared stayed relatively the same. It's normality and linearity assumptions passed however we get the same problem with the homoscedastic assumptions.
+
+Then we come to the 6th model where in this case, the non_living_SqFt is logged and the values that were 0 were removed. The model of this data showed an increase in the R-Squared to .044 the p-value on the non_living_SqFt coefficient appeared to be larger than the .05 suggesting that we fail to reject the null hypothesis once again. The SqFtTotLiving remained having a low p-value.
+
+Once again, the normality and linearity assumptions were met. However once again, the homoscedastic assumption was not met.
 
 ## Conclusion
+After comparing the models, I would say that the model that best represents the data is the 5th model that has the SqFtTotLiving and non_living_SqFt as features. Since the R-squared of most of the later models were very similar at around the mid .40s mark, this was not high in the determining factor. What contributed the mostt on the "relatively low" p-value on the non-living coefficient compared to the 6th model with the logged data. Additionally, the model itself had a low p-value on the regression statistics.
 
-Based on the findings throughout the project, and the inferences made in the summary, the most logical conclusion is to recommend to have house projects that increase the SqFtTotLiving and SqFt1stFloor. However, it is important to note that the Total Living Space in feet and the Square feet of the 1st Floor is correlated, and relates to each other.
-
-Therefore, overall, adding living space to a house should substantially increase the valuation of the house based on historical SalePrice.
+Based on this model, the recommendation that would be given is to increase the total living space of the house to increase its value, as it was found that there was a statistically significant difference in increasing a house's valuation. The difference found was that for every feet added to a house's total living space, the home evaluation would increase on average $246.36.
