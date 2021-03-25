@@ -42,7 +42,7 @@ Please make sure to run the `database.ipynb` located in `notebooks/exploratory/`
 
 ## Business Understanding
 
-Based on the findings of our [notebook](notebooks/stats.ipynb), it is recommneded for homeowners to do projects that increase their total livigin space, as in doing so, it would substantially increase their home valuation. Using historical data on the Sales Price of different homes, it was found that the more the total living space of a home, the more the Sale would increase.
+Based on the findings of our [notebook](notebooks/reports/stats.ipynb), it is recommneded for homeowners to do projects that increase their total livigin space, as in doing so, it would substantially increase their home valuation. Using historical data on the Sales Price of different homes, it was found that the more the total living space of a home, the more the Sale would increase.
 
 ## Data Understanding
 
